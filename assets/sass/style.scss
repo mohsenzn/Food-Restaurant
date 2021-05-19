@@ -1,39 +1,47 @@
 // fonts
-@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,300;1,200&display=swap");
 // variables
 $yellow: #fff200;
 
-
 // mixing
-@mixin button(){
-    outline: none;
-    border:none;
-    border-radius: 5rem;
-    color: #333;
-    font-size: 1.6rem;
-    font-weight: bold;
-    text-transform: capitalize;
-    letter-spacing: 0.2rem;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    &::before{
-        content:"";
-        position: absolute;
-        top: 0;left: 0;
-        background: $yellow;
-        height:100%;
-        width: 0%;
-        transition: .2s;
-        z-index: -1;
-    }
+@mixin button() {
+  outline: none;
+  border: none;
+  border-radius: 5rem;
+  color: #333;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  letter-spacing: 0.2rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $yellow;
+    height: 100%;
+    width: 0%;
+    transition: 0.2s;
+    z-index: -1;
+  }
 
-    &:hover:before{
-        width:100%;
-    }
+  &:hover:before {
+    width: 100%;
+  }
 }
-
+@mixin heading() {
+  font-size: 4rem;
+  color: #000;
+  padding-top: 7rem;
+  margin-bottom: 2rem;
+  span {
+    color: $yellow;
+  }
+}
 
 * {
   margin: 0;
@@ -48,6 +56,7 @@ html {
 }
 body {
   overflow-x: hidden;
+  font-family: "EXo 2", sans-serif;
 }
 
 ul {
@@ -93,17 +102,30 @@ a {
           font-size: 2rem;
           &:hover {
             color: $yellow;
-            
           }
         }
       }
     }
   }
 }
+.active-header {
+  background-color: #333;
+  height: 6rem;
+  box-shadow: 0.2rem 0 0.5rem #000;
+  nav {
+    ul {
+      margin: 0;
+    }
+  }
+}
 // home section
 
 #home {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/bg.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
   position: relative;
 
   .content {
@@ -117,27 +139,195 @@ a {
       color: $yellow;
     }
     h2 {
-        font-size: 3.5rem;
-        font-family: "lemonada", sans-serif;
-        font-weight: bolder;
-        text-shadow: 0.1rem 0.1rem 0.3rem #333;
-        color: #fff;
-        margin: 1rem 0;
-      }
-      p{
-          font-size: 1.6rem;
-          color: #ccc;
-      }
-      button {
-          @include button();
-          height:4rem;
-            width:14rem;
-      }
+      font-size: 3.5rem;
+      font-family: "lemonada", sans-serif;
+      font-weight: bolder;
+      text-shadow: 0.1rem 0.1rem 0.3rem #333;
+      color: #fff;
+      margin: 1rem 0;
+    }
+    p {
+      font-size: 1.6rem;
+      color: #ccc;
+    }
+    button {
+      @include button();
+      height: 4rem;
+      width: 14rem;
+      background: #fff;
+    }
+  }
+  .video-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+    .vid {
+      position: absolute;
+      height: 100vh;
+      width: 100%;
+      object-fit: contain;
+    }
   }
 }
 
 .fa-times {
   transform: skew(-180deg) rotate(-180deg);
+}
+
+// special section
+#special {
+  background: #000;
+  min-height: 100vh;
+  .heading {
+    h1 {
+      @include heading();
+      color: #fff;
+    }
+    p {
+      color: #ccc;
+      font-size: 2rem;
+    }
+  }
+  .card-container {
+    width: 95%;
+    margin: 7rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .card {
+      height: 40rem;
+      width: 30rem;
+      background-color: #fff;
+      padding: 1rem;
+      margin: 2rem;
+      text-align: center;
+      img {
+        height: 50%;
+        width: 100%;
+        object-fit: contain;
+      }
+      p {
+        font-size: 1.4rem;
+        margin: 2rem 0;
+      }
+      button {
+        @include button();
+        height: 3.4rem;
+        width: 14rem;
+        background: #333;
+        color: #fff;
+        &:hover {
+          color: #333;
+        }
+      }
+      &:hover {
+        transform: scale(0.9);
+      }
+    }
+  }
+}
+// about section
+
+#about {
+  .heading {
+    h1 {
+      @include heading();
+    }
+  }
+  .content {
+    margin: 5rem auto;
+    p {
+      font-size: 2rem;
+    }
+    button {
+      @include button();
+      height: 4rem;
+      width: 14rem;
+      background-color: #333;
+      color: #fff;
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+  .images {
+    img {
+      width: 30vw;
+    }
+  }
+}
+
+// dishes section
+
+#dish {
+  min-height: 100vh;
+  width: 100vw;
+
+  .heading {
+    h1 {
+      @include heading();
+    }
+  }
+  .box__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+    width: 90%;
+    .box {
+      height: 20rem;
+      width: 25rem;
+      border-radius: 0.5rem;
+      margin: 2rem auto;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 0.5rem #333;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      .info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(51, 51, 51, 0.6);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #fff;
+        transform: scale(0);
+        h3 {
+          font-size: 3rem;
+        }
+        p {
+          font-size: 1.3rem;
+          border-bottom: 0.2rem solid $yellow;
+          border-top: 0.2rem solid $yellow;
+          margin: 1rem 2rem;
+        }
+        button {
+          @include button();
+          height: 4rem;
+          width: 14rem;
+        }
+      }
+      &:hover .info {
+        transform: scale(1);
+      }
+    }
+  }
 }
 
 // media query
@@ -174,6 +364,14 @@ a {
     }
     .nav-toggle {
       left: 0%;
+    }
+  }
+  #about {
+    .images {
+      text-align: center;
+      img {
+        width: 70vw;
+      }
     }
   }
 }
