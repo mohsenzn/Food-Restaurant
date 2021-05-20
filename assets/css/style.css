@@ -433,6 +433,48 @@ a {
   background-position: center;
 }
 
+#contact .heading h1 {
+  font-size: 4rem;
+  color: #000;
+  padding-top: 7rem;
+  margin-bottom: 2rem;
+}
+
+#contact .heading h1 span {
+  color: #fff200;
+}
+
+#contact form {
+  background: #fff;
+  padding-top: 2rem;
+  margin: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 2rem #333;
+}
+
+#contact form .inputBox {
+  position: relative;
+  text-align: center;
+}
+
+#contact form .inputBox input, #contact form .inputBox textarea {
+  outline: none;
+  border: .2rem solid #333;
+  border-radius: .2rem;
+  margin: 2rem 0;
+  padding: 0 1rem;
+  background: none;
+  height: 4rem;
+  width: 90%;
+  font-size: 2rem;
+}
+
+#contact form .inputBox textarea {
+  padding: 1rem;
+  resize: none;
+  height: 20rem;
+}
+
 @media (max-width: 768px) {
   .header .fa-hamburger {
     display: block;
